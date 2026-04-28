@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="hi">
 <head>
@@ -137,7 +138,7 @@
     }
   </style>
 
- <!-- Meta Pixel Code -->
+<!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -147,13 +148,16 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
+
 fbq('init', '1490952215730475');
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1490952215730475&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1490952215730475&ev=PageView&noscript=1"/>
+</noscript>
+
 </head>
 
 <body>
@@ -185,10 +189,11 @@ src="https://www.facebook.com/tr?id=1490952215730475&ev=PageView&noscript=1"
     <li>🤝 Free Telegram Learning Community</li>
   </ul>
 
-  <!-- ✅ CTA (NO EVENT TRACKING) -->
+  <!-- ✅ CTA WITH SUBSCRIBE EVENT -->
   <a class="btn-telegram" 
      href="https://t.me/+tum50SKuT6E1ZDA1" 
-     target="_blank">
+     target="_blank"
+     onclick="trackSubscribe()">
      Start Learning Trading Free 🚀
   </a>
 
@@ -238,7 +243,17 @@ function updateTimer(){
 updateTimer();
 setInterval(updateTimer, 1000);
 
-/* Scroll tracking (optional only) */
+/* ✅ SUBSCRIBE EVENT FUNCTION */
+function trackSubscribe(){
+  if(typeof fbq !== "undefined"){
+    fbq('track', 'Subscribe', {
+      content_name: 'Telegram Join',
+      content_category: 'Trading Community'
+    });
+  }
+}
+
+/* Scroll tracking */
 window.addEventListener("scroll", function(){
   if(window.scrollY > 200){
     if(typeof fbq !== "undefined"){
@@ -250,3 +265,4 @@ window.addEventListener("scroll", function(){
 
 </body>
 </html>
+```
