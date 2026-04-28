@@ -66,6 +66,7 @@
       text-align:left;
       display:inline-block;
     }
+
     .features li{
       font-size:14px;
       font-weight:600;
@@ -136,7 +137,7 @@
     }
   </style>
 
-  <!-- Meta Pixel -->
+  <!-- Meta Pixel (Only PageView active) -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -182,11 +183,10 @@
     <li>🤝 Free Telegram Learning Community</li>
   </ul>
 
-  <!-- ✅ WORKING CTA -->
+  <!-- ✅ CTA (NO EVENT TRACKING) -->
   <a class="btn-telegram" 
      href="https://t.me/+tum50SKuT6E1ZDA1" 
-     target="_blank"
-     onclick="trackClick()">
+     target="_blank">
      Start Learning Trading Free 🚀
   </a>
 
@@ -236,14 +236,7 @@ function updateTimer(){
 updateTimer();
 setInterval(updateTimer, 1000);
 
-/* Tracking */
-function trackClick(){
-  if(typeof fbq !== "undefined"){
-    fbq('track', 'Subscribe');
-  }
-}
-
-/* Scroll tracking (advanced) */
+/* Scroll tracking (optional only) */
 window.addEventListener("scroll", function(){
   if(window.scrollY > 200){
     if(typeof fbq !== "undefined"){
