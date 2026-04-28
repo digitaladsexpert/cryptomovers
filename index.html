@@ -73,7 +73,7 @@
     }
 
     .btn-telegram{
-      background:linear-gradient(180deg,#0b7b2b,#045d1f);
+      background:linear-gradient(180deg,#00c853,#009624);
       color:#fff;
       padding:14px 32px;
       border-radius:40px;
@@ -82,7 +82,7 @@
       text-decoration:none;
       display:inline-block;
       animation:pulseBtn 2s infinite ease-in-out;
-      box-shadow:0 0 20px rgba(11,123,43,0.4);
+      box-shadow:0 0 20px rgba(0,200,83,0.4);
       margin-bottom:14px;
       cursor:pointer;
     }
@@ -109,6 +109,12 @@
     .note{
       font-size:14px;
       margin-bottom:10px;
+    }
+
+    .trust{
+      font-size:13px;
+      color:#555;
+      margin-top:10px;
     }
 
     .footer-links{
@@ -176,9 +182,12 @@
     <li>🤝 Free Telegram Learning Community</li>
   </ul>
 
-  <!-- ✅ CTA WITH GUARANTEED SUBSCRIBE EVENT -->
-  <a class="btn-telegram" href="#" onclick="handleClick(event)">
-    Join Free Telegram Channel
+  <!-- ✅ WORKING CTA -->
+  <a class="btn-telegram" 
+     href="https://t.me/+tum50SKuT6E1ZDA1" 
+     target="_blank"
+     onclick="trackClick()">
+     Start Learning Trading Free 🚀
   </a>
 
   <div class="timer-row">
@@ -187,7 +196,12 @@
   </div>
 
   <div class="note">
-    Limited access window — join now to stay updated
+    Join anytime to explore trading education & updates
+  </div>
+
+  <div class="trust">
+    👥 5,000+ learners already joined<br>
+    ⭐ Educational content only • No financial advice
   </div>
 
   <div class="footer-links">
@@ -206,6 +220,7 @@
 </div>
 
 <script>
+/* Timer */
 let remaining = 10 * 60;
 const m = document.getElementById("minutes");
 const s = document.getElementById("seconds");
@@ -221,18 +236,21 @@ function updateTimer(){
 updateTimer();
 setInterval(updateTimer, 1000);
 
-/* ✅ SUBSCRIBE EVENT + SAFE REDIRECT */
-function handleClick(e){
-  e.preventDefault();
-
+/* Tracking */
+function trackClick(){
   if(typeof fbq !== "undefined"){
     fbq('track', 'Subscribe');
   }
-
-  setTimeout(function(){
-    window.open("https://t.me/+tum50SKuT6E1ZDA1", "_blank");
-  }, 300);
 }
+
+/* Scroll tracking (advanced) */
+window.addEventListener("scroll", function(){
+  if(window.scrollY > 200){
+    if(typeof fbq !== "undefined"){
+      fbq('trackCustom', 'ScrollView');
+    }
+  }
+});
 </script>
 
 </body>
